@@ -1,3 +1,6 @@
+const assert = require('assert');
+const sumValuesByDay = require('./index');
+
 describe("sumValuesByDay", () => {
   it("should correctly sum values by day", () => {
     const dictionary = {
@@ -18,7 +21,8 @@ describe("sumValuesByDay", () => {
       'Fri': 60,
       'Sat': 70
     };
-    expect(sumValuesByDay(dictionary)).toEqual(expectedOutput);
+    const result = sumValuesByDay(dictionary);
+    assert.deepStrictEqual(result, expectedOutput);
   });
 
   it("should correctly calculate mean for missing days", () => {
@@ -37,12 +41,15 @@ describe("sumValuesByDay", () => {
       'Fri': 45,
       'Sat': 70
     };
-    expect(sumValuesByDay(dictionary)).toEqual(expectedOutput);
+    const result = sumValuesByDay(dictionary);
+    assert.deepStrictEqual(result, expectedOutput);
   });
 
   it("should return empty object for empty input", () => {
     const dictionary = {};
     const expectedOutput = {};
-    expect(sumValuesByDay(dictionary)).toEqual(expectedOutput);
+    const result = sumValuesByDay(dictionary);
+    assert.deepStrictEqual(result, expectedOutput);
   });
+
 });
