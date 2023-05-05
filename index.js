@@ -20,6 +20,7 @@ function sumValuesByDay(obj) {
       const next = i === 6 ? sums[0] : sums[i + 1];
       const mean = Math.round((prev + next) / 2);
       result[day] = mean;
+      sums[i] = mean;
     }
   }
   return result;
